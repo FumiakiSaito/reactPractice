@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * JSXでタグの中に変数を使ってみる
+         */
+        const item = 'SDカード';
+        const value = 1200;
+        const msg = <h1>{item} - {value}円</h1>;
+        const elm = document.getElementById('root');
+        ReactDOM.render(
+            msg,
+            elm
+        );
+    })();
+</script>
+</body>
+</html>

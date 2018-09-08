@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * コンポーネントを使ってみる
+         *
+         * 複雑なコンポーネントはES6のクラスを使う
+         * React.Componentを基底クラスとする
+         */
+
+        // クラスでコンポーネントを定義
+        class Greeting extends React.Component {
+            render() {
+                return <h1>{this.props.type}</h1>
+            }
+        }
+
+        // コンポーネントを利用
+        const dom = <div>
+            <Greeting type="Hello" />
+            <Greeting type="Good morning"/>
+        </div>;
+
+        ReactDOM.render(
+            dom,
+            document.getElementById('root')
+        );
+
+    })();
+</script>
+</body>
+</html>

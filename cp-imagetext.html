@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * コンポーネントを使ってみる
+         * 関数を使った書き方
+         */
+
+        // 関数でコンポーネントを定義
+        function PhotoText (props) {
+            const url = "img/" + props.image + ".jpeg";
+            const label = props.label;
+            const boxStyle = {
+                border: "1px solid silver",
+                margin: "8px",
+                padding: "4px"
+            };
+            return <div style={boxStyle}>
+                <img src="{url}" width="128"/>
+                <span>{label}</span>
+            </div>
+        }
+
+        // コンポーネントを利用
+        const dom = <div>
+            <PhotoText image="pic1" label="テキスト1" />
+            <PhotoText image="pic2" label="テキスト2" />
+            <PhotoText image="pic3" label="テキスト3" />
+        </div>;
+
+        ReactDOM.render(
+            dom,
+            document.getElementById('root')
+        );
+
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * リスト コンポーネントを作ってみる
+         */
+
+        class RList extends React.Component {
+            render() {
+                const items = this.props.items.split(",");
+                const itemsObj = items.map(
+                    (e) => {
+                        return <li>{e}</li>
+                    }
+                );
+                let title = this.props.title;
+
+                if (!title) title = "LIST";
+
+                return (
+                    <div>
+                        <h3>{title}</h3>
+                        <ul>{itemsObj}</ul>
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <div>
+                <RList
+                    title="Colors"
+                    items="Red,Green,Blue,White"
+                />
+            </div>,
+            document.getElementById('root')
+        );
+
+    })();
+</script>
+</body>
+</html>

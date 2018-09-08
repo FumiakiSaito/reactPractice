@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * styleをあててみる
+         */
+
+        ReactDOM.render(
+            getDOM(),
+            document.getElementById('root')
+        )
+
+        function getDOM() {
+            const css1 = { // CSSのスタイルで
+                "color": 'red',
+                "background-color": "#f0f0f0",
+                "font-size": '2em'
+            }
+            const css2 = { // JSXのスタイルで
+                color: 'red',
+                backgroundColor: "#f0f0f0",
+                fontSize: '2em'
+            }
+
+            return (
+                <div>
+                    <p style={css1}>CSSスタイル</p>
+                    <p style={css2}>JSXスタイル</p>
+                </div>
+            )
+        }
+    })();
+</script>
+</body>
+</html>
