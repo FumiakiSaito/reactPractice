@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * 時計
+         *
+         * stateで状態を管理するVer
+         */
+        class SClock extends React.Component {
+            constructor (props) {
+                super(props);
+
+                // 状態の初期化
+                this.state = {
+                    now: (new Date())
+                }
+
+                // 毎秒状態を更新
+                setInterval(e => {
+                    this.setState({now: (new Date())})
+                }, 1000);
+            }
+
+            render() {
+                const now = this.state.now;
+                const hh = this.fmt(now.getHours());
+                const mm = this.fmt(now.getMinutes());
+                const ss = this.fmt(now.getSeconds())
+                return (
+                    <div>{hh}:{mm}:{ss}</div>
+                )
+            }
+
+            // 0埋め関数
+            fmt (v) {
+                const s = "00" + v;
+                return s.substr(s.length - 2, 2);
+            }
+        }
+
+        ReactDOM.render(
+            <div><SClock /></div>,
+            document.getElementById('root')
+        )
+
+    })();
+</script>
+</body>
+</html>

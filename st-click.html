@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * クリックイベントを実装
+         *
+         * render()内のアロー演算子を使った関数を呼ぶ場合はbindは不要
+         * (thisが変わらない為)
+         * この書き方は一番記述コストが少ないが、render内がゴチャる
+         */
+        class Hello extends React.Component {
+            render() {
+                const clickHandler = (e) => {
+                    window.alert('こんにちは');
+                }
+
+                return (
+                    <div onClick={clickHandler}>Click Me</div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Hello />,
+            document.getElementById('root')
+        )
+
+    })();
+</script>
+</body>
+</html>

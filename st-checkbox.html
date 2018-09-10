@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    (() => {
+        /**
+         * チェックボックスの実装
+         */
+        class Cbox extends React.Component {
+            constructor(props) {
+                super(props);
+
+                // 状態の初期化
+                this.state = {checked: false};
+            }
+
+            render() {
+                let mark = '□';
+                let bstyle = {fontWeight: 'normal'};
+
+                // チェックされている？
+                if (this.state.checked) {
+                    mark = '■';
+                    bstyle = {fontWeight: 'bold'};
+                }
+
+                // クリックしたときのイベント
+                const clickHandler = (e) => {
+                    const newValue = !this.state.checked;
+                    this.setState({checked: newValue});
+                }
+
+                return (
+                    <div onClick={clickHandler} style={bstyle}>
+                        {mark} {this.props.label}
+                    </div>
+                )
+            }
+        }
+
+        const dom = <div>
+            <Cbox label="Apple"/>
+            <Cbox label="Banana"/>
+            <Cbox label="Orange"/>
+            <Cbox label="Mango"/>
+        </div>
+
+        ReactDOM.render(
+            dom,
+            document.getElementById('root')
+        )
+
+    })();
+</script>
+</body>
+</html>
