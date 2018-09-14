@@ -10,3 +10,4 @@
 6. stopwatch_sampleでライフサイクルを理解する
 7. form_sampleでシンプルな入力フォームを作ってみる
 8. form_sample2で複数の入力フォームを作ってみる
+9. inch_to_cmでコンポーネント同士の連携をしてみる
