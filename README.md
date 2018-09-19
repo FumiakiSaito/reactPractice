@@ -11,5 +11,7 @@
 7. form_sampleでシンプルな入力フォームを作ってみる
 8. form_sample2で複数の入力フォームを作ってみる
 9. inch_to_cmでコンポーネント同士の連携をしてみる
-10 st-colorでstate, props, onxxxの最大要素の使い分けを理解する
-11 form_sample3で入力チェックフォームを作ってみる
+10. st-colorでstate, props, onxxxの最大要素の使い分けを理解する
+11. form_sample3で入力チェックフォームを作ってみる
+12. refsでDOMを直接操作してみる
+13. Ajaxを使ってみる

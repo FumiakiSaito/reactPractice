@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>React Practice</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<div id="info"></div>
+<script type="text/babel">
+    class LoginForm extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                user: '',
+                pass: ''
+            }
+        }
+        render() {
+            const doSubmit = e => this.doSubmit(e);
+            const doChange = e => this.doChange(e);
+
+            // 描画内容
+            return (
+                <form onSubmit={doSubmit}>
+                    <label>ユーザー名：<br />
+                    <input type='text' name='user'
+                           ref={(i) => {this.user = i}}
+                           value={this.state.user}
+                           onChange={doChange} />
+                    </label><br />
+                    <label>パスワード：<br />
+                    <input type='password' name='pass'
+                           ref={(i) => {this.pass = i}}
+                           value={this.state.pass}
+                           onChange={doChange} />
+                    </label><br />
+                    <input type='submit' value='送信' />
+                </form>
+            )
+        }
+
+        doChange(e) {
+            const key = e.target.name;
+            this.setState({
+                [key]: e.target.value
+            })
+        }
+
+        doSubmit(e) {
+            e.preventDefault();
+            // 値が空の場合にinput要素をフォーカス
+            if (!this.state.user) {
+                this.user.focus()
+                return;
+            }
+            if (!this.state.pass) {
+                this.pass.focus();
+                return;
+            }
+            whindow.alert(JSON.stringify(this.state));
+        }
+    }
+
+    ReactDOM.render(<div><LoginForm /></div>, document.getElementById('root'));
+</script>
+</body>
+</html>
