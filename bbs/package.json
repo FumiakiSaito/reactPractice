@@ -1,0 +1,29 @@
+{
+  "name": "bbs",
+  "version": "1.0.0",
+  "description": "``` npm init -y npm install --save express npm install --save nedb npm install --save superagent npm i --save react react-dom npm i --save-dev webpack npm i --save-dev babel-loader babel-core npm i --save-dev babel-preset-es2015 babel-preset-react ```",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bbs-server.js",
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nedb": "^1.8.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "superagent": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
