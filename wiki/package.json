@@ -1,0 +1,33 @@
+{
+  "name": "wiki",
+  "version": "1.0.0",
+  "description": "``` npm init -y npm i --save react react-dom react-router-dom npm i --save express body-parser nedb superagent npm i --save-dev webpack npm i --save-dev  @babel/core babel-loader @babel/preset-env @babel/preset-react npm i --save-dev pegjs ```",
+  "main": "chat-server.js",
+  "scripts": {
+    "start": "node wiki-server.js",
+    "watch": "webpack -w",
+    "build": "webpack",
+    "build:parser": "pegjs -o src/wiki_parser.js src/wiki_parser.pegjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nedb": "^1.8.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^5.0.0",
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "pegjs": "^0.10.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
